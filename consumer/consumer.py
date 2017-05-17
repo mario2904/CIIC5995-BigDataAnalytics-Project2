@@ -3,6 +3,7 @@
 # Tutorial: https://www.rittmanmead.com/blog/2017/01/getting-started-with-spark-streaming-with-python-and-kafka/
 # Run with: spark-submit --packages org.apache.spark:spark-streaming-kafka-0-8_2.11:2.1.0 --master yarn consumer.py
 # PYSPARK_DRIVER_PYTHON=python3
+# Testing: PYSPARK_DRIVER_PYTHON=python3 pyspark --packages org.apache.spark:spark-streaming-kafka-0-8_2.11:2.1.0
 
 from pyspark import SparkContext, SparkConf
 from pyspark.streaming import StreamingContext
@@ -10,9 +11,6 @@ from pyspark.streaming.kafka import KafkaUtils
 from pyspark.sql import Row, SparkSession
 import re
 import json
-
-def get_keywords(raw_tweet):
-    text = json.loads(raw_tweet[1])['text']
 
 
 sc = SparkContext(appName="Consumer")
